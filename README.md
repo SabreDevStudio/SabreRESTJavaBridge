@@ -14,6 +14,8 @@ compressableMimeType="application/json,application/xml,text/html,text/xml,text/p
 ```
 **URL pattern:** host/api/url
 
+You can also rename built package WAR to ROOT.WAR and deploy to <CATALINA_PATH>/webapps.
+
 Example:
 
 1. Directly request to Sabre API https://api.sabre.com/v1/lists/supported/countries 

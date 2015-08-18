@@ -39,7 +39,7 @@ public class MainController {
 		return new ResponseEntity<Object>("server is running",HttpStatus.OK);
 	}
 
-	@RequestMapping(value="api/**", method = RequestMethod.GET, headers = {"Content-type=application/json"})	
+	@RequestMapping(value="api/**", method = RequestMethod.GET)	
 	public @ResponseBody ResponseEntity<?> getMethod(HttpServletRequest request) throws IOException {
 		log.info("Incoming GET Request: " + request.getRequestURL()+request.getQueryString());		
 		String redirectURL = request.getServletPath().toString()+"?"+request.getQueryString();
@@ -55,13 +55,13 @@ public class MainController {
 		return sabreAPIService.postRequest(redirectURL, requestBody);
 	}
 	
-	@RequestMapping(value="airports", params={"text"}, method = RequestMethod.GET, headers = {"Content-type=application/json"})	
+	@RequestMapping(value="airports", params={"text"}, method = RequestMethod.GET)	
 	public @ResponseBody ResponseEntity<?> getAirportsByText(HttpServletRequest request,@RequestParam("text") String text) throws IOException {
 		log.info("Incoming GET Request: " + request.getRequestURL()+request.getQueryString());
 		return new ResponseEntity<List <Airport>>(airportsService.findAirportsByText(text.toLowerCase()),HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="airports", params={"lat","lng"}, method = RequestMethod.GET, headers = {"Content-type=application/json"})	
+	@RequestMapping(value="airports", params={"lat","lng"}, method = RequestMethod.GET)	
 	public @ResponseBody ResponseEntity<?> getAirportsByCoordiate(HttpServletRequest request,@RequestParam(value="lat", defaultValue="0.0") Double lat, @RequestParam(value="lng", defaultValue="0.0") Double lng) throws IOException {
 		log.info("Incoming GET Request: " + request.getRequestURL()+request.getQueryString());
 		return new ResponseEntity<Airport>(airportsService.findAirportsByCoordiate(String.valueOf(lat), String.valueOf(lng)),HttpStatus.OK);

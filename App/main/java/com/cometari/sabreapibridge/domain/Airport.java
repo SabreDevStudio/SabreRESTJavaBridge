@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Airport{
 	
-	String code;
-	String name;
-	String city;
-	String country;
-	String latitude;
-	String longitude;
+	private String code;
+	private String name;
+	private String city;
+	private String country;
+	private String latitude;
+	private String longitude;
 			
 	@JsonCreator
     public Airport(@JsonProperty("code") String VENDOR_CODE,@JsonProperty("name") String POI_NAME, @JsonProperty("city") String CITY_NAME,
@@ -75,5 +75,4 @@ public class Airport{
 		this.longitude = longitude;
 	}
 
-	
 }

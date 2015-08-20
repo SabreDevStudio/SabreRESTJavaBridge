@@ -2,7 +2,7 @@
 Another example Sabre Java Bridge for managing REST API request and responses coded by Cometari Dedicated Solutions http://www.cometari.com
 
 It provides access to Sabre Rest API and the access is realized by http (REST) protocol.
-Please set your credentials in application.properties file.
+Please set your credentials (dont code it in Base64) in application.properties file. 
 
 The package should be deployed on Tomcat server and following configuration should be added to sever.xml 
 in order to accept content-encoding:
